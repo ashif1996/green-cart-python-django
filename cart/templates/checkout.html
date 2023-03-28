@@ -1,0 +1,118 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} EverGreen | Checkout Page {% endblock %}
+{% block content %}
+    <div class="breadcumb--con">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="py-5">
+          <!-- BILLING ADDRESS-->
+        <div class="container">
+          <h2 class="h5 text-uppercase mb-4">Billing details</h2>
+          <div class="row">
+            <div class="col-lg-8">
+              <form action="#">
+                <div class="row">
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="firstName">First name</label>
+                    <input class="form-control form-control-lg" id="firstName" type="text" placeholder="Enter your first name">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="lastName">Last name</label>
+                    <input class="form-control form-control-lg" id="lastName" type="text" placeholder="Enter your last name">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="email">Email address</label>
+                    <input class="form-control form-control-lg" id="email" type="email" placeholder="e.g. Jason@example.com">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="phone">Phone number</label>
+                    <input class="form-control form-control-lg" id="phone" type="tel" placeholder="e.g. +02 245354745">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="company">Company name (optional)</label>
+                    <input class="form-control form-control-lg" id="company" type="text" placeholder="Your company name">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="country">Country</label>
+                    <select class="selectpicker country" id="country" data-width="fit" data-style="form-control form-control-lg" data-title="Select your country"></select>
+                  </div>
+                  <div class="col-lg-12 form-group">
+                    <label class="text-small text-uppercase" for="address">Address line 1</label>
+                    <input class="form-control form-control-lg" id="address" type="text" placeholder="House number and street name">
+                  </div>
+                  <div class="col-lg-12 form-group">
+                    <label class="text-small text-uppercase" for="address">Address line 2</label>
+                    <input class="form-control form-control-lg" id="addressalt" type="text" placeholder="Apartment, Suite, Unit, etc (optional)">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="city">Town/City</label>
+                    <input class="form-control form-control-lg" id="city" type="text">
+                  </div>
+                  <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" for="state">State/County</label>
+                    <input class="form-control form-control-lg" id="state" type="text">
+                  </div>
+                  <div class="col-lg-12 form-group">
+                    <button class="btn btn-dark" type="submit">Place order</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- ORDER SUMMARY-->
+            <div class="col-lg-4">
+                <div class="order_box">
+                    <h2>Your Order</h2>
+                    <ul class="list">
+                        <li><a href="#">Product <span>Total</span></a></li>
+                        {% for cart_item in cart_items %}
+                        <li><a href="#">{{cart_item.product.name}} <span class="middle">x {{cart_item.quantity}}</span> <span class="last">₹{{cart_item.total_price}}</span></a></li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="list list_2">
+                        <li><a href="#">Subtotal <span>₹{{amount}} +</span></a></li>
+                        <li><a href="#">Shipping Charge<span>₹{{shipping_amount}} +</span></a></li>
+                        <li><a href="#">Total <span>₹{{total_amount}}</span></a></li>
+                    </ul>
+                    <div class="payment_item">
+                        <div class="radion_btn">
+                            <input type="radio" id="f-option5" name="selector">
+                            <label for="f-option5">Check payments</label>
+                            <div class="check"></div>
+                        </div>
+                        <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
+                            Store Postcode.</p>
+                    </div>
+                    <div class="payment_item active">
+                        <div class="radion_btn">
+                            <input type="radio" id="f-option6" name="selector">
+                            <label for="f-option6">Paypal </label>
+                            <img src="{% static 'images/card.jpg' %}" alt="">
+                            <div class="check"></div>
+                        </div>
+                        <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
+                            account.</p>
+                    </div>
+                    <div class="creat_account">
+                        <input type="checkbox" id="f-option4" name="selector">
+                        <label for="f-option4">I’ve read and accept the </label>
+                        <a href="#">terms & conditions*</a>
+                    </div>
+                    <a class="primary-btn" href="#">Proceed to Checkout</a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+{% endblock %}

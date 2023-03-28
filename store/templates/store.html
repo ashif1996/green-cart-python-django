@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} EverGreen | Products {% endblock %}
+{% block content %}
+    <div class="breadcumb--con">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Store</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for item in items %}
+                <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 50px;">
+                    <img class="thumbnail" src="{{ item.product_image.url }}">
+                    <div class="box-element product">
+                        <h6><strong>{{item.name}}</strong></h6>
+                        <hr>
+                        <form action="{% url 'add-to-cart' %}">
+                            <input type="hidden" name="items_id" value="{{item.id}}" id="item_id">
+                            <button type="submit" class="btn btn-success btn-block">Add to cart <i class="fa fa-shopping-cart"></i></button>
+                        </form><br>
+                        <a class="btn btn-outline-success" href="{% url 'cart' %}">View</a>
+                        <h4 style="display: inline-block; float: right; padding: 5px;">₹{{ item.price|floatformat:2}} / kg</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} EverGreen | About Us {% endblock %}
+{% block content %}
+    <div class="breadcumb--con">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+			<div class="container about-top">
+				<div class="row">
+					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/logo5.png' %}" class="logo_img">
+					</div>
+					<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate about">
+                        <div class="heading-section-bold mb-4 mt-md-5">
+	          	            <div class="ml-md-0">
+		                        <h2 class="mb-4" style="color: #82ae46;">Welcome to EverGreen</h2>
+	                        </div>
+                        </div>
+	                    <div class="pb-md-5">
+                            <p>EverGreen aims at unlocking for you access to safe-to-eat, pesticide free vegetables directly sourced from our farmers. We are an omni channel platform having both offline and online presence.</p>
+                            <p>We are all in the quest to create a positive movement,a movement aimed at reducing the gap between a consumer and a farmer,a movement that gives consumers access to safe and non-toxic farmers produce,a movement that is uplifting the farmers community.</p>
+							<p><a href="{% url 'store' %}" class="btn btn-primary" style="background-color: #82ae46; border-color: #82ae46; font-weight: bold;">Shop now</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+    </section>
+
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url('{% static 'images/about.jpg' %}');">
+    	<div class="container">
+    		<div class="row justify-content-center py-5">
+    			<div class="col-md-10">
+		    		<div class="row">
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number">1000</strong>
+		                <span>Happy Customers</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number">10</strong>
+		                <span>Branches</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number">20</strong>
+		                <span>Partner</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number">15</strong>
+		                <span>Awards</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row no-gutters ftco-services">
+              <div class="col-lg-3 text-center d-flex align-self-stretch fadeInUp">
+                <div class="media block-6 services mb-md-0 mb-4">
+                  <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+                        <span><img src="{% static 'images/free-shipping.png' %}" style="width: 70px;"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3 class="heading">Free Shipping</h3>
+                    <span>On order over $100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 text-center d-flex align-self-stretch">
+                <div class="media block-6 services mb-md-0 mb-4">
+                  <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                        <span><img src="{% static 'images/diet.png' %}" style="width: 70px;"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3 class="heading">Always Fresh</h3>
+                    <span>Product well package</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 text-center d-flex align-self-stretch">
+                <div class="media block-6 services mb-md-0 mb-4">
+                  <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                      <span><img src="{% static 'images/medal.png' %}" style="width: 70px;"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3 class="heading">Superior Quality</h3>
+                    <span>Quality Products</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 text-center d-flex align-self-stretch">
+                <div class="media block-6 services mb-md-0 mb-4">
+                  <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                        <span><img src="{% static 'images/customer-service.png' %}" style="width: 70px;"></span>
+                  </div>
+                  <div class="media-body">
+                    <h3 class="heading">Support</h3>
+                    <span>24/7 Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

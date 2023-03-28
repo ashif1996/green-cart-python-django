@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} EverGreen | Profile {% endblock %}
+{% block content %}
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container py-5">
+        {% include 'messages.html' %}
+
+        <div class="jumbotron">
+          <h1>{{request.user.first_name}} {{request.user.last_name}}</h1>
+          <p><strong>Email:</strong> {{request.user.email}}</p>
+          <p><strong>Username:</strong> {{request.user.username}}</p>
+          <p><a class="btn btn-primary btn-large" href="{% url 'add-address' %}">Add Address »</a> <a class="btn btn-outline-primary btn-large" href="{% url 'cart' %}">My Cart »</a></p>
+        </div>
+
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="card mb-4" id="headings">
+              <div class="card-header">Addresses <span class="float-right"><a href="{% url 'add-address' %}">Add Address</a></span></div>
+              <div class="card-body">
+                {% if addresses %}
+                    {% for address in addresses %}
+                        <h4 class="mb-3">Address {{forloop.counter}}</h4>
+
+                        <span class="float-right"><a href="{% url 'remove-address' address.id %}"><i class="fas fa-trash-alt small text-muted"></i></a></span>
+
+                        <p>
+                            <strong>Street: </strong>{{address.street}} <br>
+                            <strong>District: </strong>{{address.district}} <br>
+                            <strong>State: </strong>{{address.state}} <br>
+                            <strong>Country: </strong>{{address.country}} <br>
+                            <strong>Postcode: </strong>{{address.postcode}} <br>
+                        </p>
+
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                <div class="text-danger">
+                  Address not Added.
+                </div>
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+{% endblock %}
