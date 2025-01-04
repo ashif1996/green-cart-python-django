@@ -13,9 +13,7 @@ This project is designed to provide users with a seamless online shopping experi
 - **Address Management**:  
   - Save, update, and manage delivery addresses.  
 - **Contact Page**:  
-  - A page for users to contact the support team.  
-- **Responsive Design**:  
-  - Optimized for desktops and mobile devices.  
+  - A page for users to contact the support team.    
 
 ## 🛠️ Tech Stack  
 - **Backend**: Python (Django Framework)  
